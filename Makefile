@@ -24,6 +24,8 @@ NAME = libft.a
 # fclean: clean
 # 	rm -f *.a 
 # re:  fclean all 
-.PHONY: libft
+.PHONY: libft libftdel
 libft:
 	cd libft && $(MAKE)
+libftdel:
+	cd libft && $(MAKE) fclean
