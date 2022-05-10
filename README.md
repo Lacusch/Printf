@@ -12,7 +12,7 @@ Parameters
 
 - Format tags prototype is %**[flags][width]**[.precision]**[length]specifier**.
 - The ones I need to implement are:
-**%[flags][width][length]specifier**
+**%[flags][width]specifier**
 
 ## Specifiers to implement
 cspdiuxX%
