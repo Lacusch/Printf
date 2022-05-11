@@ -6,17 +6,19 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:23:05 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/05/10 16:01:58 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/05/11 13:17:02 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "libftprintf.h"
 
+
 int ft_printf(const char *s, ...)
 {
 	va_list	list;
 	int		i;
+
 	i = 0;
 	
 	va_start (list, s);
@@ -25,13 +27,40 @@ int ft_printf(const char *s, ...)
 		if(s[i] == '%')
 		{
 			i++;
-			if (s[i] == 'c')
-			{
-			
-			}
-			if (s[i] == '%')
-				write(1, '%', 1);
+			ft_process_str(list, s[i]);
 		}
-	}
+		else
+		{
+			ft_putchar_fd(s[i], 1);
+			i++;
+		}
+	}	
 	va_end(list);
+	return(0);
+}
+void ft_process_str(va_list list, char c)
+{
+	//Flags (Bonus)
+	// if (c == '-' || c == '0')
+	// {
+	// 	//implement flags
+	// }
+	// if (c == Number)
+	// 	print minimum characters
+	if (c == 'c')
+		ft_putchar_fd((char)va_arg(list, int), 1);
+	if (c == 's')
+		ft_putstr_fd(va_arg(list, char*), 1);
+	if (c == 'p')
+	;	
+	if (c == 'd' || c == 'i')
+		ft_putnbr_fd(va_arg(list, int), 1);
+	if (c == 'u')
+		ft_put_un_nbr_fd(va_arg(list, unsigned int), 1);
+	if (c == 'x')
+	;
+	if (c == 'X')
+	;
+	if (c == '%')
+		ft_putchar_fd('%', 1);
 }
