@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 12:22:43 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/05/11 14:35:39 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/05/12 10:26:31 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 //Self made functions
 
-void ft_put_un_nbr_fd(unsigned int nb, int fd);
+void	ft_put_un_nbr_fd(unsigned int nb, int fd);
 
 #endif

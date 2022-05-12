@@ -1,51 +1,21 @@
-# CC= cc
-# CFLAGS= -Wall -Wextra -Werror
-# DEPS = libft.h 
-# NAME = libft.a
-# SOURCE = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c \
-#  		ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c ft_atoi.c ft_calloc.c ft_strdup.c\
-# 		ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
-
-# OBJECT = $(SOURCE:.c=.o)
-
-# BSOURCE = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
-# BOBJECT = $(BSOURCE:.c=.o)
-
-# all: ${NAME}
-
-# ${NAME}: ${OBJECT}
-# 	ar rc ${NAME} ${OBJECT}
-
-# bonus: ${NAME} ${BOBJECT}
-# 	ar rc ${NAME}  ${OBJECT} ${BOBJECT}
-
-# clean:
-# 	rm -f *.o
-# fclean: clean
-# 	rm -f *.a 
-# re:  fclean all 
-
 CC= cc
 CFLAGS= -Wall -Wextra -Werror
-DEPS = libft.h libft.a
+DEPS = ./libft.h ./libft.a
 NAME = libftprintf.a
-SOURCE = printf.c
+SOURCE = ft_prinft.c
 OBJECT = $(SOURCE:.c=.o)
-
-.PHONY: libft libftdel all
 
 all :${NAME}
 
 ${NAME}: ${OBJECT}
-	ar rc ${NAME} ${OBJECT}
-
+	ar rc $@ $^
+${OBJECT}: ${SOURCE}
+	make -C ./libft
+	$(CC) $(CFLAGS) -c -o $@ $^
 clean:
-	rm -f *.o
+	rm -f ${OBJECT}
 fclean: clean
-	rm -f *.a 
+	rm -f ${NAME}
 re:  fclean all 
 
-libft:
-	cd libft && $(MAKE) && cp libft.h .. && cp libft.a ..
-libftdel:
-	cd libft && $(MAKE) fclean
+.PHONY: clean fclean re
