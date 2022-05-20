@@ -9,10 +9,10 @@ OBJECT = $(SOURCE:.c=.o)
 all :${NAME}
 
 ${NAME}: ${OBJECT}
-	ar rc $@ $^
-${OBJECT}: ${SOURCE}
 	make -C ./libft
-	$(CC) $(CFLAGS) -c -o $@ $^
+	cp libft/libft.a .
+	mv libft.a $(NAME)
+	ar rc libftprintf.a $(OBJECT)
 clean:
 	rm -f ${OBJECT}
 fclean: clean
