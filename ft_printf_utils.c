@@ -6,13 +6,13 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 13:26:29 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/05/23 15:07:14 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/05/23 16:20:30 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
-#include "libftprintf.h"
-#include "stdio.h"
+#include "ft_printf.h"
+
 int	ft_printf_char(int c)
 {
 	write(1, &c, 1);
