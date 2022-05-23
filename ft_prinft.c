@@ -6,12 +6,12 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:23:05 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/05/23 16:14:41 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/05/23 16:29:01 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include "stdio.h"
 
 int	ft_process_str(va_list ap, char c)
@@ -55,7 +55,7 @@ int	ft_printf(const char *s, ...)
 	va_start (ap, s);
 	while (s[i] != '\0')
 	{
-		if (s[i] == '%')
+		if (s[i] == '%' && s[i+1] != '\0')
 		{
 			c += ft_process_str(ap, s[i+1]);	
 			i += 2;
