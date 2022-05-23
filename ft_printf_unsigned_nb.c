@@ -1,25 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf_unsigned_nb.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/09 11:23:09 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/05/23 15:54:22 by slaszlo-         ###   ########.fr       */
+/*   Created: 2022/05/23 15:40:33 by slaszlo-          #+#    #+#             */
+/*   Updated: 2022/05/23 15:52:23 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
-# include <stdarg.h>
-// ft_printf.c
-int	ft_printf(const char *s, ...);
+int ft_unsigned_len (unsigned int num)
+{
+	int i;
 
-//ft_printf_utils.c
-int	ft_printf_char(int c);
-int ft_printf_str (char* str);
-int	ft_printf_unsigned_nb(unsigned int nb);
+	i = 0;
+	while (num != 0)
+	{
+	i++;
+	num = num / 10;
+	}
+	return(i);
+}
 
-void	ft_put_hex(unsigned long number, char c, int fd);
-#endif
+int	ft_printf_unsigned_nb(unsigned int nb)
+{
+	unsigned int number;
+
+	number = nb;
+	if (nb < 9)
+		ft_putchar_fd(nb + '0', 1);
+	else
+	{
+		ft_put_un_nbr_fd(nb / 10);
+		ft_putchar_fd((nb % 10) + 0, 1);
+	}
+	return (ft_unsigned_len(number));
+}
