@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 15:40:33 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/05/23 17:02:36 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/05/24 15:44:46 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,12 @@ int	ft_printf_unsigned_nb(unsigned int nb)
 	return (ft_unsigned_len(number));
 }
 
-int main ()
-{
-	unsigned int number;
-	number = 224;
-	int i;
-	i =	ft_printf_unsigned_nb(number);
-	// printf("%d", i);
-	return (0);
-}
+// int main ()
+// {
+// 	unsigned int number;
+// 	number = 224;
+// 	int i;
+// 	i =	ft_printf_unsigned_nb(number);
+// 	// printf("%d", i);
+// 	return (0);
+// }
