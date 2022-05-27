@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:23:05 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/05/23 16:29:01 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/05/27 15:00:30 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_process_str(va_list ap, char c)
 		lenght += ft_printf_char((char)va_arg(ap, int));
 	if (c == 's')
 		lenght += ft_printf_str(va_arg (ap, char*));
-	if (c == 'p' || c == 'x' || c == 'X')
+	if (c == 'p')
 	{
 		// ft_putstr_fd("0x", 1);
 		// ft_put_hex(va_arg(ap, unsigned long), c, 1);
@@ -36,6 +36,14 @@ int	ft_process_str(va_list ap, char c)
 	if (c == 'u')
 	lenght += ft_printf_unsigned_nb(va_arg(ap, unsigned int));
 		// ft_put_un_nbr_fd(va_arg(ap, unsigned int), 1);
+	if (c == 'x')
+	{
+		lenght += ft_write_hex(va_arg(ap, unsigned long));
+	}
+	if (c == 'X')
+	{
+		
+	}
 	if (c == '%')
 	{
 		ft_putchar_fd('%', 1);
