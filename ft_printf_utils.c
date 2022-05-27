@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 13:26:29 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/05/27 14:59:07 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/05/27 15:16:55 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int ft_write_hex (int number)
 		ft_putchar_fd(number + '0', 1);
 		lenght ++;
 	}
-	else if (number <=16)
+	else if (number <16)
 	{
 		ft_putchar_fd('a' + (number -10), 1);
 		lenght++;
