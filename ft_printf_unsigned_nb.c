@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 15:40:33 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/05/24 15:44:46 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/05/27 13:04:32 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,37 @@
 #include "ft_printf.h"
 #include <stdio.h>
 
-int ft_unsigned_len (unsigned int num)
-{
-	int i;
+// int ft_unsigned_len (unsigned int num)
+// {
+// 	int i;
 
-	i = 0;
-	while (num != 0)
-	{
-	printf("%d\n", num);
-	num = num / 10;
-	printf("%d\n", num);
-	i++;
-	}
-	return(i);
-}
+// 	i = 0;
+// 	while (num != 0)
+// 	{
+// 	num = num / 10;
+// 	i++;
+// 	}
+// 	return(i);
+// }
 int	ft_printf_unsigned_nb(unsigned int nb)
 {
-	unsigned int number;
+	int	lenght;
 
-	number = nb;
+	lenght = 0;
+
 	if (nb < 9)
+	{
 		ft_putchar_fd(nb + '0', 1);
+		lenght += 1;
+	}
 	else
 	{
-		ft_put_un_nbr_fd(nb / 10, 1);
+		ft_printf_unsigned_nb(nb / 10);
 		ft_putchar_fd((nb % 10) + 0, 1);
+		lenght += 1;
 	}
 	// printf ("%i",ft_unsigned_len(number));
-	return (ft_unsigned_len(number));
+	return (lenght);
 }
 
 // int main ()

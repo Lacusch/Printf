@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 13:26:29 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/05/23 16:20:30 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/05/27 13:42:29 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,12 @@ int	ft_printf_char(int c)
 
 int ft_printf_str (char* str)
 {
-	if (str != NULL)
+	if (str == NULL)
+	{
+		// write (1, "null", 5);
+		return (0);
+	}
+	else
 	{
 		write (1, str, ft_strlen(str));
 	}
