@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 11:11:05 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/05/30 15:24:06 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/05/30 15:41:00 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,15 +56,15 @@
 int main (void)
 {
 	int i, i2, i3;
-	i = 8;
+	i = 178;
 	i2 = 0;
 	i3 = 0;
 	// printf("The number in hex is: ");
-	i2 = printf("%x", i);
+	i2 = printf("%X", i);
 	printf("\nThe return value of printf is : %d", i2);
-	i3 = ft_printf("%x", i);
+	i3 = ft_printf("%X", i);
 	printf("\nThe return value of My printf is : %d", i3);
-	ft_printf("%x\n",i);
+	ft_printf("%X\n",i);
 	// printf("%x", i);
 	// write_hex(i);
 	// printf("\n%d", ft_count_hex(i));

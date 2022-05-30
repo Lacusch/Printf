@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:23:05 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/05/27 15:00:30 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/05/30 15:39:24 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ int	ft_process_str(va_list ap, char c)
 		// ft_put_un_nbr_fd(va_arg(ap, unsigned int), 1);
 	if (c == 'x')
 	{
-		lenght += ft_write_hex(va_arg(ap, unsigned long));
+		lenght += ft_write_hex(va_arg(ap, unsigned long), 'x');
 	}
 	if (c == 'X')
 	{
-		
+		lenght += ft_write_hex(va_arg(ap, unsigned long), 'X');
 	}
 	if (c == '%')
 	{

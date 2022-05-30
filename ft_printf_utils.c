@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 13:26:29 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/05/27 15:16:55 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/05/30 15:42:47 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int ft_count_hex (int number)
 	return (lenght);
 }
 
-int ft_write_hex (int number)
+int ft_write_hex (int number, char c)
 {
 	int lenght;
 	lenght = 0;
@@ -55,15 +55,20 @@ int ft_write_hex (int number)
 		ft_putchar_fd(number + '0', 1);
 		lenght ++;
 	}
-	else if (number <16)
+	else if (number <16 && c == 'x')
 	{
 		ft_putchar_fd('a' + (number -10), 1);
 		lenght++;
 	}
+	else if (number <16 && c == 'X')
+	{
+		ft_putchar_fd('A' + (number -10), 1);
+		lenght++;
+	}
 	else
 	{
-		ft_write_hex(number /16);
-		ft_write_hex(number %16);
+		ft_write_hex(number /16, c);
+		ft_write_hex(number %16, c);
 	}
 	return (ft_count_hex(number));
 }
