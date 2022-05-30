@@ -6,16 +6,15 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 11:11:05 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/05/27 15:41:37 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/05/30 15:24:06 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "ft_printf.h"
 #include <stdlib.h>
 #include <unistd.h>
-#include "ft_printf.h"
-#include "./libft/libft.h"
+#include "../ft_printf.h"
+#include "../libft/libft.h"
 #include "limits.h"
 // int count_hex (int number);
 // int write_hex (int number);
@@ -57,7 +56,7 @@
 int main (void)
 {
 	int i, i2, i3;
-	i = -9;
+	i = 8;
 	i2 = 0;
 	i3 = 0;
 	// printf("The number in hex is: ");
