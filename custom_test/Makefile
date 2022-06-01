@@ -8,7 +8,7 @@ all :$(NAME)
 
 $(NAME):
 	make -C ../
-	gcc main.c ../libftprintf.a -o test
+	gcc unsigned_test.c ../libftprintf.a -o unsigned_test
 clean: 
 	rm -f test
 re: clean all
