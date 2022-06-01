@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 11:11:05 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/05/30 16:27:49 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/06/01 14:35:04 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ int main (void)
 	i1 = printf ("%u", u);
 	printf ("\n");
 	printf ("The return value of printf is %i\n", i1);
-	i2 = printf ("My printf\n");
-	ft_printf ("%u", u);
+	printf ("My printf\n");
+	i2 = ft_printf ("%u", u);
 	printf ("\nThe return value of My printf is %i\n", i2);
 
 	// int i1, i2;
