@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:23:09 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/06/02 14:35:52 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/06/02 15:57:59 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,6 @@ int	ft_printf_unsigned_nb(unsigned int nb);
 // void	ft_put_hex(unsigned long number, char c, int fd);
 int ft_write_hex (unsigned long number, char c);
 int ft_count_hex (long number);
+
+int ft_number_digit (long number);
 #endif
