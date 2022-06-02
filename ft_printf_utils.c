@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 13:26:29 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/06/02 14:35:33 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/06/02 15:01:34 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ int ft_printf_str (char* str)
 {
 	if (str == NULL)
 	{
-		return (0);
+		ft_putstr_fd("(null)", 1);
+		return (6);
+		// return (0);
 	}
 	else
 	{
