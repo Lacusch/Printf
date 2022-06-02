@@ -4,7 +4,7 @@ CFlags= -Wall -Wextra -Werror
 DEPS = ../libftprintf.a ../ft_printf.h
 NAME = test
 LIBFT = ../libftprintf.a
-all :$(NAME) c u s p x X procent
+all :$(NAME) c u s p x X procent d i 
 
 $(NAME):
 	make -C ../
@@ -25,6 +25,9 @@ procent:
 	gcc procent_test.c $(LIBFT) -o procent_test.o
 clean: 
 	rm -f *.o
+d:
+	gcc int_test.c $(LIBFT) -o int_test.o
+i: d
 re: clean all
 
-.PHONY: clean re all c u s p x X procent
+.PHONY: clean re all c u s p x X procent d i
