@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 15:40:33 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/06/02 14:17:45 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/06/07 12:34:55 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,12 @@
 int ft_number_digit (long number)
 {
 	int i;
-	i = 0;
+	if (number < 0)
+		i = 1;
+	else
+		i = 0;
+	if (number == 0)
+		return(1);
 	if (number < 0)
 		number = number *(-1);
 	while (number != 0)
@@ -33,23 +38,27 @@ int	ft_printf_unsigned_nb(unsigned int nb)
 {
 	int ret;
 	ret = ft_number_digit(nb);
-
 	if (nb != 0)
 	{
 		ft_printf_unsigned_nb(nb / 10);
 		ft_putchar_fd((nb % 10) + '0', 1);
 	}
-	return (ret);
+
+		
+	return ft_number_digit(nb);
 }
 
-int	ft_printf_signed_nb(int nb)
+int	ft_printf_signed_nb(long nb)
 {
-	
 	int ret;
 	ret = ft_number_digit(nb);
-
+	if (nb == 0)
+		ft_putnbr_fd(0, 1);
 	if (nb < 0)
+	{
 		nb = nb * (-1);
+		ft_putchar_fd('-', 1);
+	}
 	if (nb != 0)
 	{
 		ft_printf_unsigned_nb(nb / 10);
