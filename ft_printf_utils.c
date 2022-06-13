@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 13:26:29 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/06/02 15:28:52 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/06/13 06:21:39 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int ft_printf_str (char* str)
 	return(ft_strlen(str));
 }
 
-int ft_count_hex (long number)
+int ft_count_hex (unsigned long number)
 {
 	int lenght;
 	lenght = 0;
