@@ -4,8 +4,7 @@ DEPS = ./libft.h ./libft.a
 NAME = libftprintf.a
 SOURCE = ft_prinft.c ft_printf_utils.c ft_printf_unsigned_nb.c
 OBJECT = $(SOURCE:.c=.o)
-# ar -r libftprintf.a ft_putchar_fd.o ft_putnbr_fd.o ft_putstr_fd.o ft_strlen.o
-# ar -x libftprintf.a ft_putchar_fd.o ft_putnbr_fd.o ft_putstr_fd.o ft_strlen.o
+
 all :${NAME}
 
 ${NAME}: ${OBJECT}
@@ -19,4 +18,6 @@ fclean: clean
 	rm -f ${NAME}
 re:  fclean all 
 
+norm:
+	norminette ft_prinft.c ft_printf.h ft_printf_unsigned_nb.c ft_printf_utils.c libft/	
 .PHONY: clean fclean re
