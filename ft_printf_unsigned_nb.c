@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 15:40:33 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/06/07 12:34:55 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/06/13 07:00:02 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,15 @@ int ft_number_digit (long number)
 	return (i);
 }
 
-int	ft_printf_unsigned_nb(unsigned int nb)
+int	ft_printf_unsigned_nb(unsigned int nb, int call_count)
 {
 	int ret;
+	if (call_count == 1 && nb == 0)
+		ft_putstr_fd("0", 1);
 	ret = ft_number_digit(nb);
 	if (nb != 0)
 	{
-		ft_printf_unsigned_nb(nb / 10);
+		ft_printf_unsigned_nb(nb / 10, call_count + 1);
 		ft_putchar_fd((nb % 10) + '0', 1);
 	}
 
@@ -61,7 +63,7 @@ int	ft_printf_signed_nb(long nb)
 	}
 	if (nb != 0)
 	{
-		ft_printf_unsigned_nb(nb / 10);
+		ft_printf_unsigned_nb(nb / 10, 2);
 		ft_putchar_fd((nb % 10) + '0', 1);
 	}
 	return (ret);
