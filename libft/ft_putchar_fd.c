@@ -6,14 +6,15 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 15:28:07 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/04/12 15:48:09 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/06/27 16:42:15 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_putchar_fd(char c, int fd)
 
 {
 	write (fd, &c, 1);
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 13:26:29 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/06/13 07:36:07 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/06/27 16:56:33 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,20 +57,11 @@ int	ft_write_hex(unsigned int number, char c)
 		return (1);
 	}
 	if (number < 10)
-	{
-		ft_putchar_fd(number + '0', 1);
-		lenght ++;
-	}
+		lenght += ft_putchar_fd(number + '0', 1);
 	else if (number < 16 && c == 'x')
-	{
-		ft_putchar_fd('a' + (number -10), 1);
-		lenght++;
-	}
+		lenght += ft_putchar_fd('a' + (number -10), 1);
 	else if (number < 16 && c == 'X')
-	{
-		ft_putchar_fd('A' + (number -10), 1);
-		lenght++;
-	}
+		lenght += ft_putchar_fd('A' + (number -10), 1);
 	else
 	{
 		ft_write_hex(number / 16, c);
@@ -79,30 +70,28 @@ int	ft_write_hex(unsigned int number, char c)
 	return (ft_count_hex(number));
 }
 
-int	ft_write_point(unsigned long number)
+int	ft_write_point(unsigned long number, int i)
 {
 	int	lenght;
 
-	lenght = 0;
+	lenght = 2;
+	if (i == 0)
+		ft_putstr_fd("0x", 1);
 	if (number == 0)
 	{
 		ft_putchar_fd(number + '0', 1);
-		return (1);
+		return (3);
 	}
 	if (number < 10)
 	{
-		ft_putchar_fd(number + '0', 1);
-		lenght ++;
+		lenght += ft_putchar_fd(number + '0', 1);
 	}
 	else if (number < 16)
-	{
-		ft_putchar_fd('a' + (number -10), 1);
-		lenght++;
-	}
+		lenght += ft_putchar_fd('a' + (number -10), 1);
 	else
 	{
-		ft_write_point(number / 16);
-		ft_write_point(number % 16);
+		ft_write_point(number / 16, 1);
+		ft_write_point(number % 16, 1);
 	}
-	return (ft_count_hex(number));
+	return (ft_count_hex(number) + 2);
 }
