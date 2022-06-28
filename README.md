@@ -42,6 +42,4 @@ cspdiuxX%
 - **' '(space)** If no sign is going to be written, a blank space is inserted before the value.
 
 ## Todo
-1. We print each character to std until we get to a %
-2. It (required) implement the flags, width, length and specifier, then repeat till the end of the stirng.
-3. Use structs for the bonus (Tip from Kevin)
+- Make ft_printf consistent with the printf implementation of invalid identifyer(skip the % and print the character)
