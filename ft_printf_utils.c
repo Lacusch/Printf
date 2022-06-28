@@ -6,7 +6,7 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 13:26:29 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/06/27 16:56:33 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/06/28 11:22:14 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,6 @@ int	ft_write_hex(unsigned int number, char c)
 
 int	ft_write_point(unsigned long number, int i)
 {
-	int	lenght;
-
-	lenght = 2;
 	if (i == 0)
 		ft_putstr_fd("0x", 1);
 	if (number == 0)
@@ -84,10 +81,10 @@ int	ft_write_point(unsigned long number, int i)
 	}
 	if (number < 10)
 	{
-		lenght += ft_putchar_fd(number + '0', 1);
+		ft_putchar_fd(number + '0', 1);
 	}
 	else if (number < 16)
-		lenght += ft_putchar_fd('a' + (number -10), 1);
+		ft_putchar_fd('a' + (number -10), 1);
 	else
 	{
 		ft_write_point(number / 16, 1);
