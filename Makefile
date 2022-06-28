@@ -14,8 +14,10 @@ ${NAME}: ${OBJECT}
 	ar rc libftprintf.a $(OBJECT)
 clean:
 	rm -f ${OBJECT}
+	make clean -C ./libft
 fclean: clean
 	rm -f ${NAME}
+	make fclean -C ./libft
 re:  fclean all 
 
 norm:
