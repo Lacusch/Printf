@@ -6,56 +6,38 @@
 /*   By: slaszlo- <slaszlo-@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 11:23:05 by slaszlo-          #+#    #+#             */
-/*   Updated: 2022/05/20 17:34:31 by slaszlo-         ###   ########.fr       */
+/*   Updated: 2022/06/27 16:49:19 by slaszlo-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
-#include "libftprintf.h"
+#include "ft_printf.h"
+#include "stdio.h"
 
-void	ft_put_un_nbr_fd(unsigned int nb, int fd)
+int	ft_process_str(va_list ap, char c)
 {
-	if (nb < 9)
-		ft_putchar_fd(nb + '0', 1);
-	else
-	{
-		ft_put_un_nbr_fd(nb / 10, fd);
-		ft_putchar_fd((nb % 10) + 0, fd);
-	}
-}
+	int		lenght;
 
-void	ft_put_hex(unsigned long number, char c, int fd)
-{
-	if (number < 10)
-		ft_putnbr_fd(number, 1);
-	else if (number <= 16 & c == 'x' || c == 'X')
-		ft_putnbr_fd('a' + (number - 10), 1);
-	else if (number <= 16 && c == 'X')
-		ft_putnbr_fd('A' + (number - 10), 1);
-	else
-	{
-		ft_put_hex(number / 16, c, fd);
-		ft_put_hex(number % 16, c, fd);
-	}
-}
-
-void	ft_process_str(va_list ap, char c)
-{
+	lenght = 0;
 	if (c == 'c')
-		ft_putchar_fd((char)va_arg(ap, int), 1);
+		lenght += ft_printf_char((char)va_arg(ap, int));
 	if (c == 's')
-		ft_putstr_fd(va_arg (ap, char*), 1);
-	if (c == 'p' || c == 'x' || c == 'X')
-	{
-		ft_putstr_fd("0x", 1);
-		ft_put_hex(va_arg(ap, unsigned long), c, 1);
-	}
+		lenght += ft_printf_str(va_arg(ap, char *));
+	if (c == 'p')
+		lenght += ft_write_point(va_arg(ap, unsigned long), 0);
 	if (c == 'd' || c == 'i')
-		ft_putnbr_fd(va_arg(ap, int), 1);
+		lenght += ft_printf_signed_nb(va_arg(ap, int));
 	if (c == 'u')
-		ft_put_un_nbr_fd(va_arg(ap, unsigned int), 1);
+		lenght += ft_printf_unsigned_nb(va_arg(ap, unsigned int), 1);
+	if (c == 'x')
+		lenght += ft_write_hex(va_arg(ap, unsigned long), 'x');
+	if (c == 'X')
+		lenght += ft_write_hex(va_arg(ap, unsigned long), 'X');
 	if (c == '%')
-		ft_putchar_fd('%', 1);
+	{
+		lenght += ft_putchar_fd('%', 1);
+	}
+	return (lenght);
 }
 
 int	ft_printf(const char *s, ...)
@@ -69,12 +51,10 @@ int	ft_printf(const char *s, ...)
 	va_start (ap, s);
 	while (s[i] != '\0')
 	{
-		if (s[i] == '%')
+		if (s[i] == '%' && s[i + 1] != '\0')
 		{
-			i++;
-			c++;
-			ft_process_str(ap, s[i]);
-			i++;
+			c += ft_process_str(ap, s[i + 1]);
+			i += 2;
 		}
 		else
 		{
