@@ -1,7 +1,7 @@
 [The website I used for the writeup](https://www.tutorialspoint.com/c_standard_library/c_function_printf.htm)
 
 # Printf
-This project required you to recreate the founction printf.
+This project required you to recreate the function printf.
 
 Recreating Prinft Function:
 
